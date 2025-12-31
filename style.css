@@ -1,0 +1,39 @@
+/* Estilos generales */
+body {
+  min-height: 100vh;
+  background: radial-gradient(circle at bottom, #0b1026, #000);
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+/* Estrellas y fondo */
+.stars { position: fixed; inset: 0; z-index: 0; background: radial-gradient(ellipse at bottom, #1b0033 0%, #000 100%); }
+
+/* Título */
+header { font-family: 'Great Vibes', cursive; font-size: 3rem; margin-top: 20px; color: #ffd6e0; text-align: center; }
+
+/* El Libro */
+#paginas { position: relative; width: 100%; max-width: 800px; height: 420px; margin: 30px auto; perspective: 2000px; }
+.pagina { position: absolute; top: 0; width: 50%; height: 100%; background: #fffdf8; color: #333; padding: 20px; opacity: 0; transition: transform 0.9s ease, opacity 0.4s; backface-visibility: hidden; box-shadow: inset 0 0 20px rgba(0,0,0,.1); }
+.pagina.left { left: 0; border-radius: 15px 0 0 15px; }
+.pagina.right { right: 0; border-radius: 0 15px 15px 0; transform-origin: left center; }
+.pagina.active { opacity: 1; }
+.pagina.turn { transform: rotateY(-180deg); z-index: 10; }
+
+/* Texto de los poemas */
+.poema { height: 100%; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 1.1rem; line-height: 1.4; }
+
+/* Botones */
+#toggleMusica, .botones button { background: #ff4d6d; color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; margin: 10px; font-weight: bold; }
+.botones { display: flex; justify-content: center; }
+
+/* Corazones animados */
+.heart { position: fixed; bottom: -30px; width: 20px; height: 20px; background: #ff4d6d; transform: rotate(45deg); animation: floatHeart 6s linear forwards; z-index: 5; }
+.heart::before, .heart::after { content: ""; position: absolute; width: 20px; height: 20px; background: inherit; border-radius: 50%; }
+.heart::before { top: -10px; left: 0; }
+.heart::after { left: -10px; top: 0; }
+
+@keyframes floatHeart { to { transform: translateY(-120vh) rotate(45deg); opacity: 0; } }
